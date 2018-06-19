@@ -3,7 +3,7 @@ image: Visual Studio 2017
 environment:
   APPVEYOR: 1
 install:
-- docker 18.03.1-ce
+- docker version
 - cmd: >-
     echo APPVEYOR is %APPVEYOR%
 
