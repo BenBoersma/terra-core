@@ -5,10 +5,8 @@ environment:
 install:
 - docker version
 - cmd: >-
-    echo APPVEYOR is %APPVEYOR%
-
     choco install selenium-chrome-driver --version 2.37
-
-    npm install
 build_script:
+- cmd: npm install
+test_script:
 - cmd: npm run wdio
