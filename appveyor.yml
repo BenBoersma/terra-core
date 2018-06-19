@@ -1,0 +1,14 @@
+version: 1.0.{build}
+image: Visual Studio 2017
+environment:
+  APPVEYOR: 1
+install:
+- docker 18.03.1-ce
+- cmd: >-
+    echo APPVEYOR is %APPVEYOR%
+
+    choco install selenium-chrome-driver --version 2.37
+
+    npm install
+build_script:
+- cmd: npm run wdio
