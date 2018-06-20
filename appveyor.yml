@@ -10,4 +10,4 @@ build_script:
 - cmd: npm install
 - docker images
 test_script:
-- cmd: npm run wdio
+- cmd: npm run nightwatch
