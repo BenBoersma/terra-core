@@ -8,5 +8,6 @@ install:
     choco install selenium-chrome-driver --version 2.37
 build_script:
 - cmd: npm install
+- docker images
 test_script:
 - cmd: npm run wdio
