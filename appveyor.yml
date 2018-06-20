@@ -4,6 +4,7 @@ environment:
   APPVEYOR: 1
 install:
 - docker version
+- node --version
 - cmd: >-
     choco install selenium-chrome-driver --version 2.37
 build_script:
