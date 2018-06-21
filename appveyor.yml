@@ -10,5 +10,6 @@ install:
 build_script:
 - cmd: npm install
 - docker images
+- docker ps
 test_script:
 - cmd: npm run nightwatch
