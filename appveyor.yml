@@ -13,4 +13,4 @@ build_script:
 - docker ps
 - docker swarm init --advertise-addr 10.0.75.1
 test_script:
-- cmd: npm run nightwatch
+- cmd: npm run wdio
