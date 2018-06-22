@@ -11,7 +11,8 @@ install:
   - cmd: >-
       choco install selenium-chrome-driver --version 2.37
 build_script:
-  - cmd: npm install- cmd: dir
+  - cmd: npm install
+  - cmd: dir
   - cmd: docker-compose build --build-arg TERRA_NODE_TAG=latest test-chrome
   - cmd: docker-compose --verbose pull standalone-chrome
   - docker images
