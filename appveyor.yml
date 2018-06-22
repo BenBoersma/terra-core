@@ -7,7 +7,7 @@ environment:
 install:
   - docker version
   - node --version
-  - cmd: curl -L -O docker-compose.yml https://raw.github.com/cerner/terra-toolkit/master/config/docker/ci-docker-compose.yml
+  - cmd: curl -L -o docker-compose.yml https://raw.github.com/cerner/terra-toolkit/master/config/docker/ci-docker-compose.yml
   - cmd: >-
       choco install selenium-chrome-driver --version 2.37
 build_script:
