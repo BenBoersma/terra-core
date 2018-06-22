@@ -5,17 +5,20 @@ environment:
   TRAVIS: 1
   DOCKER_IMAGE: 'cerner/terra-core'
 install:
-- docker version
-- node --version
-- cmd: >-
-    choco install selenium-chrome-driver --version 2.37
+  - docker version
+  - node --version
+  - cmd: >-
+      choco install selenium-chrome-driver --version 2.37
 build_script:
-- cmd: npm install
-- cmd: curl -o docker-compose.yml https://raw.github.com/cerner/terra-toolkit/master/config/docker/ci-docker-compose.yml
-- cmd: docker-compose build --build-arg TERRA_NODE_TAG=latest test-chrome
-- cmd: docker-compose --verbose pull standalone-chrome
-- docker images
-- docker ps
+  - cmd: npm install
+  - cmd: curl -o docker-compose.yml https://raw.github.com/cerner/terra-toolkit/master/config/docker/ci-docker-compose.yml
+  - cmd: docker-compose build --build-arg TERRA_NODE_TAG=latest test-chrome
+  - cmd: docker-compose --verbose pull standalone-chrome
+  - docker images
+  - docker ps
 test_script:
-- cmd: curl -o docker-compose.yml https://raw.github.com/cerner/terra-toolkit/master/config/docker/ci-docker-compose.yml
-- cmd: docker-compose run -e TRAVIS=$TRAVIS -e CI=$CI test-chrome npm run wdio -- --suite suite1"
+  - cmd: curl -o docker-compose.yml https://raw.github.com/cerner/terra-toolkit/master/config/docker/ci-docker-compose.yml
+  - cmd: docker-compose run -e TRAVIS=$TRAVIS -e CI=$CI test-chrome npm run wdio -- --suite suite1"
+artifacts:
+  - path: docker-compose.yml
+    name: Docker-Compose
