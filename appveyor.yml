@@ -11,6 +11,5 @@ build_script:
 - cmd: npm install
 - docker images
 - docker ps
-- docker swarm init --advertise-addr 10.0.75.1
 test_script:
 - cmd: npm run wdio
