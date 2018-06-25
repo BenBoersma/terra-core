@@ -12,5 +12,6 @@ build_script:
   - docker images
   - docker ps
   - docker swarm init --advertise-addr 10.0.75.1
+  - cmd: ping 127.0.0.1
 test_script:
     - cmd: npm run wdio
