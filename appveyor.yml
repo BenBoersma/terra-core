@@ -1,24 +1,15 @@
 version: 1.0.{build}
 image: Visual Studio 2017
 environment:
-  APPVEYOR: 0
-  TRAVIS: 1
-  DOCKER_IMAGE: 'cerner/terra-core'
+  APPVEYOR: 1
 install:
   - docker version
   - node --version
-  - cmd: curl -L -o docker-compose.yml https://raw.github.com/cerner/terra-toolkit/master/config/docker/ci-docker-compose.yml
   - cmd: >-
       choco install selenium-chrome-driver --version 2.37
 build_script:
   - cmd: npm install
-  - cmd: dir
-  - cmd: docker-compose build --build-arg TERRA_NODE_TAG=latest test-chrome
-  - cmd: docker-compose --verbose pull standalone-chrome
   - docker images
   - docker ps
 test_script:
-    - cmd: docker-compose run -e TRAVIS=$TRAVIS -e CI=$CI test-chrome npm run wdio -- --suite suite1"
-artifacts:
-  - path: docker-compose.yml
-    name: Docker-Compose
+    - cmd: npm run wdio
