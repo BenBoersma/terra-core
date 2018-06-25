@@ -90,7 +90,7 @@
     "stylelint-order": "^0.8.1",
     "stylelint-scss": "^3.0.0",
     "stylelint-suitcss": "^3.0.0",
-    "terra-dev-site": "git://github.com/cerner/terra-dev-site#windows-wdio-fixes",
+    "terra-dev-site": "git://github.com/cerner/terra-dev-site",
     "terra-toolkit": "git://github.com/cerner/terra-toolkit#appveyor-setup",
     "webpack-merge": "^4.1.2"
   }
