@@ -12,6 +12,6 @@ build_script:
   - docker images
   - docker ps
   - docker swarm init --advertise-addr 10.0.75.1
-  - cmd: netsh http add iplisten 127.0.0.1
+  - docker stack deploy --compose-file C:\projects\terra-core\node_modules\terra-toolkit\config\docker\local-docker-compose.yml wdio
 test_script:
     - cmd: npm run wdio
